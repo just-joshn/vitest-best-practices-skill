@@ -8,19 +8,20 @@
 
 ## Investigate and establish evidence
 
-1. Process: Restate the behavior to test and the success check in one line each, before reading code.
-2. Define the behavior by its contract, because [test-suite-structure](../references/core/test-suite-structure.md "start by thinking about its **contract**: what does it promise to do for the code that calls it?").
-3. Read the `include` and `exclude` config options for which files are included, because [test-suite-structure](../references/core/test-suite-structure.md "you can customize which files are included with the [`include`](/config/include) and [`exclude`](/config/exclude) config options.").
-4. Some teams use a separate `__tests__` or `test` directory, and either layout works, because [test-suite-structure](../references/core/test-suite-structure.md "Some teams prefer a separate `__tests__` or `test` directory instead. Either approach works.").
-5. If an AI writes the tests, share existing test files from the same project, because [writing-tests-with-ai](../references/core/writing-tests-with-ai.md "Share existing test files from the same project. This helps the AI match your conventions").
-6. Check whether the config enables the `globals` option, because [test-suite-structure](../references/core/test-suite-structure.md "you can enable the [`globals`](/config/globals) option in your config").
-7. Look in setup files for things like extending the `expect` API or global polyfills, because [fixtures-hooks](../references/core/fixtures-hooks.md "This makes them the right place for things like extending the `expect` API or configuring global polyfills.").
-8. Check whether the project already defines fixtures with `test.extend`, because [fixtures-hooks](../references/core/fixtures-hooks.md "The `test.extend` method lets you create a custom test API with fixtures").
-9. Check whether the config defines tags, because [test-tags](../references/core/test-tags.md "Tags must be defined in your configuration file.").
-10. Check whether the project already has type tests, because [type-testing](../references/testing-patterns/type-testing.md "By default all tests inside `*.test-d.ts` files are considered type tests").
-11. Check whether the project already has in-source tests, because [in-source-testing](../references/testing-patterns/in-source-testing.md "put a `if (import.meta.vitest)` block at the end of your source file").
-12. Check which files are benchmark files by their file names, because [benchmarking](../references/testing-patterns/benchmarking.md "Whether a file participates in the benchmark run is decided by the filename").
-13. Process: Write down the project's conventions you found: file layout, naming, imports, fixtures, tags. The new tests follow them.
+1. Process: Restate the behavior to test and the acceptance checks in one line each, before reading code.
+2. Process: Delegate reading the existing tests and config near the code under test to a read-only subagent. Keep the test design yourself.
+3. Define the behavior by its contract, because [test-suite-structure](../references/core/test-suite-structure.md "start by thinking about its **contract**: what does it promise to do for the code that calls it?").
+4. Read the `include` and `exclude` config options for which files are included, because [test-suite-structure](../references/core/test-suite-structure.md "you can customize which files are included with the [`include`](/config/include) and [`exclude`](/config/exclude) config options.").
+5. Some teams use a separate `__tests__` or `test` directory, and either layout works, because [test-suite-structure](../references/core/test-suite-structure.md "Some teams prefer a separate `__tests__` or `test` directory instead. Either approach works.").
+6. If an AI writes the tests, share existing test files from the same project, because [writing-tests-with-ai](../references/core/writing-tests-with-ai.md "Share existing test files from the same project. This helps the AI match your conventions").
+7. Check whether the config enables the `globals` option, because [test-suite-structure](../references/core/test-suite-structure.md "you can enable the [`globals`](/config/globals) option in your config").
+8. Look in setup files for things like extending the `expect` API or global polyfills, because [fixtures-hooks](../references/core/fixtures-hooks.md "This makes them the right place for things like extending the `expect` API or configuring global polyfills.").
+9. Check whether the project already defines fixtures with `test.extend`, because [fixtures-hooks](../references/core/fixtures-hooks.md "The `test.extend` method lets you create a custom test API with fixtures").
+10. Check whether the config defines tags, because [test-tags](../references/core/test-tags.md "Tags must be defined in your configuration file.").
+11. Check whether the project already has type tests, because [type-testing](../references/testing-patterns/type-testing.md "By default all tests inside `*.test-d.ts` files are considered type tests").
+12. Check whether the project already has in-source tests, because [in-source-testing](../references/testing-patterns/in-source-testing.md "put a `if (import.meta.vitest)` block at the end of your source file").
+13. Check which files are benchmark files by their file names, because [benchmarking](../references/testing-patterns/benchmarking.md "Whether a file participates in the benchmark run is decided by the filename").
+14. Process: Write down the project's conventions you found: file layout, naming, imports, fixtures, tags. The new tests follow them.
 
 ## Design and implement
 

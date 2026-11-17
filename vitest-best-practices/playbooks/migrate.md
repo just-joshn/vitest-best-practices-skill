@@ -9,21 +9,22 @@
 ## Investigate and establish evidence
 
 1. Process: Record the current runner, its installed version, and the command that runs the whole suite.
-2. Process: Run the whole suite on the current runner before changing anything. Save each test's file, full name, and status (passed, failed, skipped) to a file.
-3. Process: Record the Node.js version and the installed Vite version.
-4. For an older Vitest, check the Node.js and Vite versions first, because [migrating-vitest](../references/migration/migrating-vitest.md "Before proceeding with any other migration steps, ensure your environment meets these requirements.").
-5. For a Vitest lower than 4, apply earlier migration guides first, because [migrating-vitest](../references/migration/migrating-vitest.md "If the current version is lower than Vitest 4, apply changes from earlier migration guides first.").
-6. Vitest's JSON reporter generates a report of the test results, because [reporting](../references/infrastructure-ci-cd/reporting.md "Generates a report of the test results in a JSON format compatible with Jest's `--json` option.").
-7. For Vitest, run the suite once without watch mode, because [cli](../references/infrastructure-ci-cd/cli.md "Perform a single run without watch mode.").
-8. For Jest, find tests that rely on globals, because [jest](../references/migration/jest.md "Jest has their [globals API](https://jestjs.io/docs/api) enabled by default. Vitest does not.").
-9. For Jest, find uses of the `jest` namespace, because [jest](../references/migration/jest.md "Vitest doesn't have an equivalent to `jest` namespace, so you will need to import types directly from `vitest`:").
-10. For Jest, find `requireActual` calls, because [jest](../references/migration/jest.md "In Vitest, you should replace these calls with `vi.importActual`.").
-11. For Jest, find `done` callbacks, because [jest](../references/migration/jest.md "Vitest does not support the callback style of declaring tests.").
-12. For Jest, find `jest.setTimeout` calls, because [jest](../references/migration/jest.md "If you used `jest.setTimeout`, you would need to migrate to `vi.setConfig`:").
-13. For Jest, find `jest.mock` factories, because [jest](../references/migration/jest.md "In Vitest, the factory argument has to return an object with each export explicitly defined.").
-14. For Mocha, find where tests rely on globals, because [mocha](../references/migration/mocha.md "**Globals**: Mocha provides globals by default.").
-15. For Mocha, find Sinon spies, stubs, and mocks, because [mocha](../references/migration/mocha.md "Replace Sinon's spy/stub/mock creation with Vitest's `vi` utilities:").
-16. Process: List which documented differences apply to this project, and which do not, before changing code.
+2. Process: Delegate the baseline run and each batch run to a subagent. Compare the results yourself.
+3. Process: Run the whole suite on the current runner before changing anything. Save each test's file, full name, and status (passed, failed, skipped) to a file.
+4. Process: Record the Node.js version and the installed Vite version.
+5. For an older Vitest, check the Node.js and Vite versions first, because [migrating-vitest](../references/migration/migrating-vitest.md "Before proceeding with any other migration steps, ensure your environment meets these requirements.").
+6. For a Vitest lower than 4, apply earlier migration guides first, because [migrating-vitest](../references/migration/migrating-vitest.md "If the current version is lower than Vitest 4, apply changes from earlier migration guides first.").
+7. Vitest's JSON reporter generates a report of the test results, because [reporting](../references/infrastructure-ci-cd/reporting.md "Generates a report of the test results in a JSON format compatible with Jest's `--json` option.").
+8. For Vitest, run the suite once without watch mode, because [cli](../references/infrastructure-ci-cd/cli.md "Perform a single run without watch mode.").
+9. For Jest, find tests that rely on globals, because [jest](../references/migration/jest.md "Jest has their [globals API](https://jestjs.io/docs/api) enabled by default. Vitest does not.").
+10. For Jest, find uses of the `jest` namespace, because [jest](../references/migration/jest.md "Vitest doesn't have an equivalent to `jest` namespace, so you will need to import types directly from `vitest`:").
+11. For Jest, find `requireActual` calls, because [jest](../references/migration/jest.md "In Vitest, you should replace these calls with `vi.importActual`.").
+12. For Jest, find `done` callbacks, because [jest](../references/migration/jest.md "Vitest does not support the callback style of declaring tests.").
+13. For Jest, find `jest.setTimeout` calls, because [jest](../references/migration/jest.md "If you used `jest.setTimeout`, you would need to migrate to `vi.setConfig`:").
+14. For Jest, find `jest.mock` factories, because [jest](../references/migration/jest.md "In Vitest, the factory argument has to return an object with each export explicitly defined.").
+15. For Mocha, find where tests rely on globals, because [mocha](../references/migration/mocha.md "**Globals**: Mocha provides globals by default.").
+16. For Mocha, find Sinon spies, stubs, and mocks, because [mocha](../references/migration/mocha.md "Replace Sinon's spy/stub/mock creation with Vitest's `vi` utilities:").
+17. Process: List which documented differences apply to this project, and which do not, before changing code.
 
 ## Design and implement
 
@@ -51,6 +52,7 @@
 22. For an older Vitest, raise the `timeout` of a poll that needs more time, because [migrating-vitest](../references/migration/migrating-vitest.md "A poll that legitimately needs more time should raise its `timeout`.").
 23. For an older Vitest run from a subdirectory with a parent config file, pass the config explicitly, because [migrating-vitest](../references/migration/migrating-vitest.md "If you previously relied on running `vitest` from a subdirectory while using a config file from a parent directory, pass the config explicitly").
 24. Process: Change only what a documented difference requires. Leave unrelated tests and config untouched.
+25. Process: Reject migrating the whole suite in one batch, and reject skipping or deleting a test that changed status to get a passing run.
 
 ## Verify behavior and challenge findings
 

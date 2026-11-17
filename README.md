@@ -1,6 +1,6 @@
 # Vitest Best Practices Skill
 
-An agent skill that runs Vitest work as a disciplined workflow. You give the agent a goal, constraints, and a success check. The skill has it select a playbook, investigate, make the smallest well-supported change, verify the actual result, and bring back evidence you can review. An inconclusive check is reported as unresolved, with the missing proof named, and never as a pass.
+An opinionated agent skill that runs Vitest work as a disciplined workflow. You give the agent a goal, constraints, and acceptance checks. The skill has it choose a playbook, investigate and design, implement and clean, and verify the actual behavior. Verified work is delivered or merged through independent shipping gates. A blocked or inconclusive result is reported with its limits and remaining work, and never as a pass.
 
 All Vitest guidance comes from the official Vitest documentation, pinned in [`sources.json`](sources.json) (currently `v5.1.1`).
 
@@ -22,7 +22,7 @@ The skill folder is then at `node_modules/@justjoshn/vitest-best-practices-skill
 
 | Path | What it is | Written by |
 | --- | --- | --- |
-| [`vitest-best-practices/SKILL.md`](vitest-best-practices/SKILL.md) | The coordinator. It runs the workflow chart, picks a playbook, and defines statuses and the report format. | Hand |
+| [`vitest-best-practices/SKILL.md`](vitest-best-practices/SKILL.md) | The coordinator. It runs the workflow chart and sets the skill's opinions: principles, preferred defaults, and rejected approaches. It also defines statuses and the report format. | Hand |
 | [`vitest-best-practices/playbooks/`](vitest-best-practices/playbooks) | One workflow per kind of Vitest task. Each step cites the docs or is marked as a process step. | Hand, checked |
 | [`vitest-best-practices/references/`](vitest-best-practices/references) | Verbatim excerpts of the Vitest docs, grouped by topic. The playbooks cite these. | Generated |
 

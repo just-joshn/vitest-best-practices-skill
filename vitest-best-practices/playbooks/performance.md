@@ -9,15 +9,16 @@
 ## Investigate and establish evidence
 
 1. Process: Record the slow command, the machine, and the wall-clock time of a run, before changing anything.
-2. Read the `Duration` line of the run summary, because [performance](../references/infrastructure-ci-cd/performance.md "The `Duration` line of the summary breaks the run down into phases, as percentages of all tracked time:").
-3. Treat the percentages as shares of tracked time, not wall-clock time, because [performance](../references/infrastructure-ci-cd/performance.md "The percentages are relative to the sum of all tracked phases, not to the wall-clock time").
-4. In a multi-project setup, read the percentages as aggregated over all projects, because [performance](../references/infrastructure-ci-cd/performance.md "In a multi-project setup the percentages aggregate over all [projects](/guide/projects)").
-5. If Vitest prints a hint after the summary, read it, because [performance](../references/infrastructure-ci-cd/performance.md "When the collected timings show that a configuration change would make the run significantly faster, Vitest also prints a hint after the summary").
-6. Run `vitest doctor` to measure alternative configurations, because [cli](../references/infrastructure-ci-cd/cli.md "`vitest doctor` measures how much faster the test suite would run under alternative configurations by running it under each of them.").
-7. If the `tests` phase dominates, expect little gain from configuration, because [performance](../references/infrastructure-ci-cd/performance.md "A run dominated by this phase has little to gain from configuration changes.").
-8. When test execution time is high, you can generate a profile of the test runner, because [performance](../references/infrastructure-ci-cd/performance.md "In cases where your test execution time is high, you can generate a profile of the test runner.")
-9. Profiling the main thread is useful for debugging Vitest's Vite usage and `globalSetup` files, because [performance](../references/infrastructure-ci-cd/performance.md "Profiling main thread is useful for debugging Vitest's Vite usage and [`globalSetup`](/config/globalsetup) files.")
-10. Process: Name the single bottleneck the measurement supports before changing code. If the measurement supports none, the result is inconclusive.
+2. Process: Delegate the baseline and after measurements to a subagent on the same machine. Compare the numbers yourself.
+3. Read the `Duration` line of the run summary, because [performance](../references/infrastructure-ci-cd/performance.md "The `Duration` line of the summary breaks the run down into phases, as percentages of all tracked time:").
+4. Treat the percentages as shares of tracked time, not wall-clock time, because [performance](../references/infrastructure-ci-cd/performance.md "The percentages are relative to the sum of all tracked phases, not to the wall-clock time").
+5. In a multi-project setup, read the percentages as aggregated over all projects, because [performance](../references/infrastructure-ci-cd/performance.md "In a multi-project setup the percentages aggregate over all [projects](/guide/projects)").
+6. If Vitest prints a hint after the summary, read it, because [performance](../references/infrastructure-ci-cd/performance.md "When the collected timings show that a configuration change would make the run significantly faster, Vitest also prints a hint after the summary").
+7. Run `vitest doctor` to measure alternative configurations, because [cli](../references/infrastructure-ci-cd/cli.md "`vitest doctor` measures how much faster the test suite would run under alternative configurations by running it under each of them.").
+8. If the `tests` phase dominates, expect little gain from configuration, because [performance](../references/infrastructure-ci-cd/performance.md "A run dominated by this phase has little to gain from configuration changes.").
+9. When test execution time is high, you can generate a profile of the test runner, because [performance](../references/infrastructure-ci-cd/performance.md "In cases where your test execution time is high, you can generate a profile of the test runner.")
+10. Profiling the main thread is useful for debugging Vitest's Vite usage and `globalSetup` files, because [performance](../references/infrastructure-ci-cd/performance.md "Profiling main thread is useful for debugging Vitest's Vite usage and [`globalSetup`](/config/globalsetup) files.")
+11. Process: Name the single bottleneck the measurement supports before changing code. If the measurement supports none, the result is inconclusive.
 
 ## Design and implement
 
@@ -36,6 +37,7 @@
 13. Select affected tests with `--changed` for a Git baseline, because [affected-tests](../references/infrastructure-ci-cd/affected-tests.md "[`--changed`](/config/changed) compares the working tree with a Git reference.").
 14. Select affected tests with `--since-last-run` for a baseline of your own last run, because [affected-tests](../references/infrastructure-ci-cd/affected-tests.md "[`--since-last-run`](/guide/cli#since-last-run) compares every file a test loaded with the time of the test's last run.").
 15. Process: Change one setting at a time and leave unrelated tests and config untouched.
+16. Process: Reject a setting change the measurement did not point to, and do not keep a change that fails to improve the same measurement.
 
 ## Verify behavior and challenge findings
 
