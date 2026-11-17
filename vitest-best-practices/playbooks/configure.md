@@ -9,14 +9,15 @@
 ## Investigate and establish evidence
 
 1. Process: Record the request, the current behavior, and the output that shows it, before changing any file.
-2. Find the config file Vitest loads. If `--config` is not passed, read the lookup order, because [configuration](../references/core/configuration.md "When an explicit `--config` option is not provided, Vitest looks for `vitest.config.{ts,mts,cts,js,mjs,cjs}` first and `vite.config.{ts,mts,cts,js,mjs,cjs}` second in the project [`root`](/config/root).").
-3. If a `vitest.config` file is created, all options in the `vite.config` file are ignored, because [configuration](../references/core/configuration.md "it means all options in your `vite.config` will be **ignored**").
-4. Check the scripts and CI commands for `--config`, because [configuration](../references/core/configuration.md "Pass `--config` option to CLI, e.g. `vitest --config ./path/to/vitest.config.ts`").
-5. Read the current `environment` value in that file, because [configuration](../references/core/configuration.md "Vitest provides [`environment`](/config/environment) option to run code inside a specific environment.").
-6. If the config has `projects`, list the projects and their names, because [projects-dependencies](../references/core/projects-dependencies.md "All projects must have unique names; otherwise, Vitest will throw an error.").
-7. For each project, check whether it inherits the root options, because [projects-dependencies](../references/core/projects-dependencies.md "Projects defined with an inline configuration inherit all options from the root-level configuration.").
-8. Record whether the suite is started today with `vitest`, `vitest run`, or `vitest watch`, because [watch-mode](../references/infrastructure-ci-cd/watch-mode.md "`vitest` starts in `watch mode` **by default in development environment** and `run mode` in CI environment (when `process.env.CI` presents) smartly. You can use `vitest watch` or `vitest run` to explicitly specify the desired mode.").
-9. Process: Name the one setting the request needs. If no documented option matches, say the Vitest docs do not cover it.
+2. Process: Delegate the search for every config file and setup file the project references to a read-only subagent.
+3. Find the config file Vitest loads. If `--config` is not passed, read the lookup order, because [configuration](../references/core/configuration.md "When an explicit `--config` option is not provided, Vitest looks for `vitest.config.{ts,mts,cts,js,mjs,cjs}` first and `vite.config.{ts,mts,cts,js,mjs,cjs}` second in the project [`root`](/config/root).").
+4. If a `vitest.config` file is created, all options in the `vite.config` file are ignored, because [configuration](../references/core/configuration.md "it means all options in your `vite.config` will be **ignored**").
+5. Check the scripts and CI commands for `--config`, because [configuration](../references/core/configuration.md "Pass `--config` option to CLI, e.g. `vitest --config ./path/to/vitest.config.ts`").
+6. Read the current `environment` value in that file, because [configuration](../references/core/configuration.md "Vitest provides [`environment`](/config/environment) option to run code inside a specific environment.").
+7. If the config has `projects`, list the projects and their names, because [projects-dependencies](../references/core/projects-dependencies.md "All projects must have unique names; otherwise, Vitest will throw an error.").
+8. For each project, check whether it inherits the root options, because [projects-dependencies](../references/core/projects-dependencies.md "Projects defined with an inline configuration inherit all options from the root-level configuration.").
+9. Record whether the suite is started today with `vitest`, `vitest run`, or `vitest watch`, because [watch-mode](../references/infrastructure-ci-cd/watch-mode.md "`vitest` starts in `watch mode` **by default in development environment** and `run mode` in CI environment (when `process.env.CI` presents) smartly. You can use `vitest watch` or `vitest run` to explicitly specify the desired mode.").
+10. Process: Name the one setting the request needs. If no documented option matches, say the Vitest docs do not cover it.
 
 ## Design and implement
 
@@ -44,6 +45,7 @@
 22. To run tests affected by a Git baseline, use `--changed`, because [affected-tests](../references/infrastructure-ci-cd/affected-tests.md "[`--changed`](/config/changed) compares the working tree with a Git reference.").
 23. To run tests affected since the last run, use `--since-last-run`, because [affected-tests](../references/infrastructure-ci-cd/affected-tests.md "[`--since-last-run`](/guide/cli#since-last-run) compares every file a test loaded with the time of the test's last run.").
 24. Process: Change only the setting the request names. Leave unrelated config and tests untouched.
+25. Process: Reject any config change that no run output confirms took effect.
 
 ## Verify behavior and challenge findings
 

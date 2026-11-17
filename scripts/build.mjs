@@ -254,6 +254,7 @@ for (const file of playbooks) {
     if (!content.startsWith(marker)) report(`${name}:${lineNo}: uncited step must start with "${marker}" or cite the docs`)
     else if (hasCode) report(`${name}:${lineNo}: uncited step names a Vitest identifier; cite the docs for it`)
   })
+  if (!lines.some(line => /^\d+\. Process: Delegate /.test(line))) report(`${name}: needs a "Process: Delegate ..." step naming the work to hand to a subagent`)
   if (sections.join('\n') !== PLAYBOOK_SECTIONS.join('\n')) report(`${name}: sections must be exactly, in order: ${PLAYBOOK_SECTIONS.join(' / ')}`)
   for (const path of linkedFiles(file)) if (expected.has(path)) covered.add(path)
 }

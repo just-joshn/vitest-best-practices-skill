@@ -9,15 +9,16 @@
 ## Investigate and establish evidence
 
 1. Process: Record the test file, the dependency in question, and what the test must assert about it.
-2. Decide first whether to mock at all, because [when-to-mock](../references/architecture/when-to-mock.md "Only reach for mocks when the real thing is slow, flaky, or has side effects you can't control in a test.").
-3. Do not mock the code under test, because [when-to-mock](../references/architecture/when-to-mock.md "Don't mock the thing you're testing.").
-4. Keep a real dependency that is a simple in-memory data structure or a pure function, because [when-to-mock](../references/architecture/when-to-mock.md "If a dependency is a simple in-memory data structure or a pure function, there's no reason to mock it.").
-5. Classify slow dependencies such as network, file system, and database calls, because [when-to-mock](../references/architecture/when-to-mock.md "Network requests, file system operations, and database calls can make your tests take seconds instead of milliseconds.").
-6. Classify non-deterministic values such as dates, random numbers, and UUIDs, because [when-to-mock](../references/architecture/when-to-mock.md "If your code depends on the current date, a random number, or a UUID generator, mock those to make your tests predictable.").
-7. Split a function dependency into observing versus replacing, because [functions](../references/mocking/functions.md "Mocking functions can be split up into two different categories: spying and mocking.").
-8. Read the cheat sheet entry that matches what the test needs, because [mocking](../references/mocking/mocking.md "For a simpler and quicker way to get started with mocking, you can check the Cheat Sheet below.").
-9. Check whether the function is executed at the top level during an import or called before the spying, because [modules](../references/mocking/modules.md "if the function is executed at the top level during an import or it was called before the spying, `vi.spyOn` will not be able to report on it.").
-10. Process: Name the dependency kind and the chosen technique before changing code. If the docs do not cover the kind, say so.
+2. Process: Delegate the search for every place the dependency is imported or called to a read-only subagent.
+3. Decide first whether to mock at all, because [when-to-mock](../references/architecture/when-to-mock.md "Only reach for mocks when the real thing is slow, flaky, or has side effects you can't control in a test.").
+4. Do not mock the code under test, because [when-to-mock](../references/architecture/when-to-mock.md "Don't mock the thing you're testing.").
+5. Keep a real dependency that is a simple in-memory data structure or a pure function, because [when-to-mock](../references/architecture/when-to-mock.md "If a dependency is a simple in-memory data structure or a pure function, there's no reason to mock it.").
+6. Classify slow dependencies such as network, file system, and database calls, because [when-to-mock](../references/architecture/when-to-mock.md "Network requests, file system operations, and database calls can make your tests take seconds instead of milliseconds.").
+7. Classify non-deterministic values such as dates, random numbers, and UUIDs, because [when-to-mock](../references/architecture/when-to-mock.md "If your code depends on the current date, a random number, or a UUID generator, mock those to make your tests predictable.").
+8. Split a function dependency into observing versus replacing, because [functions](../references/mocking/functions.md "Mocking functions can be split up into two different categories: spying and mocking.").
+9. Read the cheat sheet entry that matches what the test needs, because [mocking](../references/mocking/mocking.md "For a simpler and quicker way to get started with mocking, you can check the Cheat Sheet below.").
+10. Check whether the function is executed at the top level during an import or called before the spying, because [modules](../references/mocking/modules.md "if the function is executed at the top level during an import or it was called before the spying, `vi.spyOn` will not be able to report on it.").
+11. Process: Name the dependency kind and the chosen technique before changing code. If the docs do not cover the kind, say so.
 
 ## Design and implement
 

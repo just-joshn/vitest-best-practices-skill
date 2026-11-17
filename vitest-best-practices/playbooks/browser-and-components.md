@@ -9,16 +9,17 @@
 ## Investigate and establish evidence
 
 1. Process: Record the goal, the component or page under test, and the success check, before running anything.
-2. Check whether Browser Mode is set up, because [browser-mode](../references/browser-mode/browser-mode.md "To activate browser mode in your Vitest configuration, set the `browser.enabled` field to `true` in your Vitest configuration file.").
-3. Check that a provider is defined, because [browser-mode](../references/browser-mode/browser-mode.md "Vitest always requires a provider to be defined.").
-4. If Browser Mode is not set up, the init command can be used for easier setup, because [browser-mode](../references/browser-mode/browser-mode.md "For easier setup, you can use `vitest init browser` command to install required dependencies and create browser configuration.").
-5. Check which browsers and setups the config runs, because [multiple-setups](../references/browser-mode/multiple-setups.md "You can use the `browser.instances` field to specify options for different browsers.").
-6. Check whether a Node-based project sits next to the browser project, because [browser-mode](../references/browser-mode/browser-mode.md "you can define a [`projects`](/guide/projects) option with separate configurations for different testing strategies:").
-7. Check whether the test is affected by discrepancies between a simulated browser environment and a real one, because [test-architecture](../references/architecture/test-architecture.md "these tools only simulate a browser environment and not an actual browser, which may result in some discrepancies between the simulated environment and the real environment.").
-8. For React, `vitest-browser-react` is an option, because [react](../references/frameworks/react.md "the `vitest-browser-react` package provides certain benefits unique to the Browser Mode that `@testing-library/react` lacks:").
-9. For Vue, `vitest-browser-vue` is an option, because [vue](../references/frameworks/vue.md "the `vitest-browser-vue` package provides certain benefits unique to the Browser Mode that `@testing-library/vue` lacks:").
-10. For Svelte, `vitest-browser-svelte` is an option, because [svelte](../references/frameworks/svelte.md "the `vitest-browser-svelte` package provides certain benefits unique to the Browser Mode that `@testing-library/svelte` lacks:").
-11. Process: Run the failing or target browser test once and record the output as given.
+2. Process: Delegate the browser test runs and the collection of failure output to a subagent. Read the failures yourself.
+3. Check whether Browser Mode is set up, because [browser-mode](../references/browser-mode/browser-mode.md "To activate browser mode in your Vitest configuration, set the `browser.enabled` field to `true` in your Vitest configuration file.").
+4. Check that a provider is defined, because [browser-mode](../references/browser-mode/browser-mode.md "Vitest always requires a provider to be defined.").
+5. If Browser Mode is not set up, the init command can be used for easier setup, because [browser-mode](../references/browser-mode/browser-mode.md "For easier setup, you can use `vitest init browser` command to install required dependencies and create browser configuration.").
+6. Check which browsers and setups the config runs, because [multiple-setups](../references/browser-mode/multiple-setups.md "You can use the `browser.instances` field to specify options for different browsers.").
+7. Check whether a Node-based project sits next to the browser project, because [browser-mode](../references/browser-mode/browser-mode.md "you can define a [`projects`](/guide/projects) option with separate configurations for different testing strategies:").
+8. Check whether the test is affected by discrepancies between a simulated browser environment and a real one, because [test-architecture](../references/architecture/test-architecture.md "these tools only simulate a browser environment and not an actual browser, which may result in some discrepancies between the simulated environment and the real environment.").
+9. For React, `vitest-browser-react` is an option, because [react](../references/frameworks/react.md "the `vitest-browser-react` package provides certain benefits unique to the Browser Mode that `@testing-library/react` lacks:").
+10. For Vue, `vitest-browser-vue` is an option, because [vue](../references/frameworks/vue.md "the `vitest-browser-vue` package provides certain benefits unique to the Browser Mode that `@testing-library/vue` lacks:").
+11. For Svelte, `vitest-browser-svelte` is an option, because [svelte](../references/frameworks/svelte.md "the `vitest-browser-svelte` package provides certain benefits unique to the Browser Mode that `@testing-library/svelte` lacks:").
+12. Process: Run the failing or target browser test once and record the output as given.
 
 ## Design and implement
 
@@ -46,6 +47,7 @@
 22. Hand-edited regex patterns in a snapshot survive `--update`, because [accessibility](../references/testing-patterns/accessibility.md "When you hand-edit a snapshot to use regex patterns, those patterns survive `--update`.").
 23. Test keyboard navigation and focus too, because [component-testing](../references/testing-patterns/component-testing.md "Ensure components work for all users by testing keyboard navigation, focus management, and ARIA attributes.").
 24. Process: Change only the tests and config the named cause or goal requires.
+25. Process: Reject fixed-length waits in browser tests, and reject screenshot reference updates that nobody reviewed.
 
 ## Verify behavior and challenge findings
 

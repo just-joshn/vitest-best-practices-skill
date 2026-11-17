@@ -8,16 +8,17 @@
 ## Investigate and establish evidence
 
 1. Process: Record the failing test's file, name, and the failure output exactly as given, before running anything.
-2. Reproduce the instability with `--repeats=<number>`, because [flaky-tests](../references/debugging/flaky-tests.md "This is useful for verifying that tests are stable across multiple runs. If a test fails on any repetition, the whole test is reported as failed.").
-3. Run just that one test without the rest of the suite, because [debugging](../references/debugging/debugging.md "Run just that one test, without the rest of your suite:").
-4. Compare the alone run with the full-suite run, because [debugging](../references/debugging/debugging.md "If the test passes when run alone but fails when run with others, you have a test isolation problem (more on that below).").
-5. Look for state that tests share and do not reset, because [debugging](../references/debugging/debugging.md "The usual cause is that some other test modifies shared state (a global variable, a module-level cache, a database) and doesn't clean up after itself.").
-6. Look for a missing `await` on a promise assertion, because [debugging](../references/debugging/debugging.md "The most common mistake is forgetting an `await`:").
-7. Look for spies or mocks that are not restored, because [debugging](../references/debugging/debugging.md "If a mock from one test leaks into another, you'll get unexpected behavior.").
-8. Look for fixed-length waits, because [assertions-waiting](../references/core/assertions-waiting.md "Waiting with `setTimeout` tends to land on either a flaky undershoot or a wasteful long sleep").
-9. Look for test files that share an exclusive resource, because [flaky-tests](../references/debugging/flaky-tests.md "The exception is the handful that share an exclusive resource, like a fixed port, a writable temp directory, or a database without per-test isolation.").
-10. In Browser Mode screenshot tests, look for animations, because [flaky-tests](../references/debugging/flaky-tests.md "Animations can cause flaky tests. Disable them during testing").
-11. Process: Name the single cause the evidence supports before changing code. If the evidence supports no cause, the result is inconclusive.
+2. Process: Delegate the repeated runs on the original code, and later on the changed code, to a subagent. Compare the failure counts yourself.
+3. Reproduce the instability with `--repeats=<number>`, because [flaky-tests](../references/debugging/flaky-tests.md "This is useful for verifying that tests are stable across multiple runs. If a test fails on any repetition, the whole test is reported as failed.").
+4. Run just that one test without the rest of the suite, because [debugging](../references/debugging/debugging.md "Run just that one test, without the rest of your suite:").
+5. Compare the alone run with the full-suite run, because [debugging](../references/debugging/debugging.md "If the test passes when run alone but fails when run with others, you have a test isolation problem (more on that below).").
+6. Look for state that tests share and do not reset, because [debugging](../references/debugging/debugging.md "The usual cause is that some other test modifies shared state (a global variable, a module-level cache, a database) and doesn't clean up after itself.").
+7. Look for a missing `await` on a promise assertion, because [debugging](../references/debugging/debugging.md "The most common mistake is forgetting an `await`:").
+8. Look for spies or mocks that are not restored, because [debugging](../references/debugging/debugging.md "If a mock from one test leaks into another, you'll get unexpected behavior.").
+9. Look for fixed-length waits, because [assertions-waiting](../references/core/assertions-waiting.md "Waiting with `setTimeout` tends to land on either a flaky undershoot or a wasteful long sleep").
+10. Look for test files that share an exclusive resource, because [flaky-tests](../references/debugging/flaky-tests.md "The exception is the handful that share an exclusive resource, like a fixed port, a writable temp directory, or a database without per-test isolation.").
+11. In Browser Mode screenshot tests, look for animations, because [flaky-tests](../references/debugging/flaky-tests.md "Animations can cause flaky tests. Disable them during testing").
+12. Process: Name the single cause the evidence supports before changing code. If the evidence supports no cause, the result is inconclusive.
 
 ## Design and implement
 

@@ -14,7 +14,7 @@ npx skills add https://github.com/just-joshn/vitest-best-practices-skill
 
 | Path | What it is | Written by |
 | --- | --- | --- |
-| [`vitest-best-practices/SKILL.md`](vitest-best-practices/SKILL.md) | The coordinator. It runs the workflow chart, picks a playbook, and defines statuses and the report format. | Hand |
+| [`vitest-best-practices/SKILL.md`](vitest-best-practices/SKILL.md) | The coordinator. It runs the workflow chart and sets the skill's opinions: principles, preferred defaults, and rejected approaches. It also defines statuses and the report format. | Hand |
 | [`vitest-best-practices/playbooks/`](vitest-best-practices/playbooks) | One workflow per kind of Vitest task. Each step cites the docs or is marked as a process step. | Hand, checked |
 | [`vitest-best-practices/references/`](vitest-best-practices/references) | Verbatim excerpts of the Vitest docs, grouped by topic. The playbooks cite these. | Generated |
 
