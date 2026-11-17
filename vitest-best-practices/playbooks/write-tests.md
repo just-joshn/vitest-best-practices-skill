@@ -8,7 +8,7 @@
 
 ## Investigate and establish evidence
 
-1. Process: Restate the behavior to test and the success check in one line each, before reading code.
+1. Process: Restate the behavior to test and the acceptance checks in one line each, before reading code.
 2. Process: Delegate reading the existing tests and config near the code under test to a read-only subagent. Keep the test design yourself.
 3. Define the behavior by its contract, because [test-suite-structure](../references/core/test-suite-structure.md "start by thinking about its **contract**: what does it promise to do for the code that calls it?").
 4. Read the `include` and `exclude` config options for which files are included, because [test-suite-structure](../references/core/test-suite-structure.md "you can customize which files are included with the [`include`](/config/include) and [`exclude`](/config/exclude) config options.").

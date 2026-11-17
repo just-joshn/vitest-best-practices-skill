@@ -8,7 +8,7 @@
 
 ## Investigate and establish evidence
 
-1. Process: Record the goal, the component or page under test, and the success check, before running anything.
+1. Process: Record the goal, the component or page under test, and the acceptance checks, before running anything.
 2. Process: Delegate the browser test runs and the collection of failure output to a subagent. Read the failures yourself.
 3. Check whether Browser Mode is set up, because [browser-mode](../references/browser-mode/browser-mode.md "To activate browser mode in your Vitest configuration, set the `browser.enabled` field to `true` in your Vitest configuration file.").
 4. Check that a provider is defined, because [browser-mode](../references/browser-mode/browser-mode.md "Vitest always requires a provider to be defined.").
