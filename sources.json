@@ -1,0 +1,448 @@
+{
+  "repo": "https://github.com/vitest-dev/vitest",
+  "ref": "v5.1.1",
+  "commit": "161e25f663a838f6a30890f8a6827ff83ff1b3c7",
+  "site": "https://vitest.dev",
+  "topics": {
+    "references/core/getting-started.md": {
+      "title": "Getting Started",
+      "excerpts": [
+        "guide/index.md",
+        "guide/features.md"
+      ]
+    },
+    "references/core/test-suite-structure.md": {
+      "title": "Test Suite Structure",
+      "excerpts": [
+        "guide/learn/writing-tests.md",
+        "guide/learn/testing-in-practice.md"
+      ]
+    },
+    "references/core/configuration.md": {
+      "title": "Configuration",
+      "excerpts": [
+        "config/index.md",
+        "guide/environment.md"
+      ]
+    },
+    "references/core/fixtures-hooks.md": {
+      "title": "Fixtures & Hooks",
+      "excerpts": [
+        "guide/learn/setup-teardown.md",
+        "guide/test-context.md"
+      ]
+    },
+    "references/core/assertions-waiting.md": {
+      "title": "Assertions & Waiting",
+      "excerpts": [
+        "guide/learn/matchers.md",
+        "guide/learn/async.md",
+        "guide/recipes/wait-for.md"
+      ]
+    },
+    "references/core/annotations.md": {
+      "title": "Test Annotations",
+      "excerpts": [
+        "api/test.md :: ## test.skip",
+        "api/test.md :: ## test.skipIf",
+        "api/test.md :: ## test.runIf",
+        "api/test.md :: ## test.only",
+        "api/test.md :: ## test.todo",
+        "api/test.md :: ## test.fails",
+        "guide/test-annotations.md"
+      ]
+    },
+    "references/core/test-tags.md": {
+      "title": "Test Tags & Filtering",
+      "excerpts": [
+        "guide/test-tags.md",
+        "guide/filtering.md"
+      ]
+    },
+    "references/core/global-setup.md": {
+      "title": "Global Setup & Setup Files",
+      "excerpts": [
+        "config/globalsetup.md",
+        "config/setupfiles.md"
+      ]
+    },
+    "references/core/projects-dependencies.md": {
+      "title": "Test Projects",
+      "excerpts": [
+        "guide/projects.md"
+      ]
+    },
+    "references/core/lifecycle.md": {
+      "title": "Test Run Lifecycle",
+      "excerpts": [
+        "guide/lifecycle.md"
+      ]
+    },
+    "references/core/ide.md": {
+      "title": "IDE Integrations",
+      "excerpts": [
+        "guide/ide.md"
+      ]
+    },
+    "references/core/writing-tests-with-ai.md": {
+      "title": "Writing Tests with AI",
+      "excerpts": [
+        "guide/learn/writing-tests-with-ai.md"
+      ]
+    },
+    "references/mocking/mocking.md": {
+      "title": "Mocking",
+      "excerpts": [
+        "guide/mocking.md",
+        "guide/learn/mock-functions.md"
+      ]
+    },
+    "references/mocking/functions.md": {
+      "title": "Mocking Functions",
+      "excerpts": [
+        "guide/mocking/functions.md"
+      ]
+    },
+    "references/mocking/modules.md": {
+      "title": "Mocking Modules",
+      "excerpts": [
+        "guide/mocking/modules.md"
+      ]
+    },
+    "references/mocking/classes.md": {
+      "title": "Mocking Classes",
+      "excerpts": [
+        "guide/mocking/classes.md"
+      ]
+    },
+    "references/mocking/globals.md": {
+      "title": "Mocking Globals",
+      "excerpts": [
+        "guide/mocking/globals.md"
+      ]
+    },
+    "references/mocking/file-system.md": {
+      "title": "Mocking the File System",
+      "excerpts": [
+        "guide/mocking/file-system.md"
+      ]
+    },
+    "references/mocking/clock-mocking.md": {
+      "title": "Clock Mocking (Timers & Dates)",
+      "excerpts": [
+        "guide/mocking/timers.md",
+        "guide/mocking/dates.md"
+      ]
+    },
+    "references/mocking/network-mocking.md": {
+      "title": "Mocking Requests",
+      "excerpts": [
+        "guide/mocking/requests.md"
+      ]
+    },
+    "references/mocking/conditional-mocking.md": {
+      "title": "Conditional Mocking",
+      "excerpts": [
+        "guide/recipes/conditional-mocking.md"
+      ]
+    },
+    "references/mocking/explicit-resources.md": {
+      "title": "Auto-Cleanup with `using`",
+      "excerpts": [
+        "guide/recipes/explicit-resources.md"
+      ]
+    },
+    "references/architecture/when-to-mock.md": {
+      "title": "When to Mock",
+      "excerpts": [
+        "guide/learn/testing-in-practice.md :: ## When to Mock"
+      ]
+    },
+    "references/architecture/test-architecture.md": {
+      "title": "Test Architecture",
+      "excerpts": [
+        "guide/browser/why.md"
+      ]
+    },
+    "references/debugging/debugging.md": {
+      "title": "Debugging",
+      "excerpts": [
+        "guide/learn/debugging-tests.md",
+        "guide/debugging.md"
+      ]
+    },
+    "references/debugging/flaky-tests.md": {
+      "title": "Flaky Tests",
+      "excerpts": [
+        "config/retry.md",
+        "config/repeats.md",
+        "api/test.md :: ### retry",
+        "api/test.md :: ### repeats",
+        "guide/learn/setup-teardown.md :: ## Repeating Setup for Each Test",
+        "guide/filtering.md :: ## Skipping Tests with `.skip`",
+        "guide/recipes/parallel-sequential.md",
+        "guide/browser/visual-regression-testing.md :: ### Disable animations",
+        "guide/browser/visual-regression-testing.md :: ### Flaky tests or different screenshot sizes"
+      ]
+    },
+    "references/debugging/common-errors.md": {
+      "title": "Common Errors",
+      "excerpts": [
+        "guide/common-errors.md"
+      ]
+    },
+    "references/debugging/vitest-ui.md": {
+      "title": "Vitest UI",
+      "excerpts": [
+        "guide/ui.md"
+      ]
+    },
+    "references/testing-patterns/component-testing.md": {
+      "title": "Component Testing",
+      "excerpts": [
+        "guide/browser/component-testing.md"
+      ]
+    },
+    "references/testing-patterns/visual-regression.md": {
+      "title": "Visual Regression Testing",
+      "excerpts": [
+        "guide/browser/visual-regression-testing.md"
+      ]
+    },
+    "references/testing-patterns/accessibility.md": {
+      "title": "Accessibility (ARIA Snapshots)",
+      "excerpts": [
+        "guide/browser/aria-snapshots.md"
+      ]
+    },
+    "references/testing-patterns/snapshot-testing.md": {
+      "title": "Snapshot Testing",
+      "excerpts": [
+        "guide/learn/snapshots.md",
+        "guide/snapshot.md"
+      ]
+    },
+    "references/testing-patterns/custom-matchers.md": {
+      "title": "Custom Matchers & Assertion Helpers",
+      "excerpts": [
+        "guide/extending-matchers.md",
+        "guide/recipes/custom-assertions.md",
+        "guide/recipes/schema-matching.md",
+        "guide/recipes/type-narrowing.md"
+      ]
+    },
+    "references/testing-patterns/type-testing.md": {
+      "title": "Type Testing",
+      "excerpts": [
+        "guide/testing-types.md"
+      ]
+    },
+    "references/testing-patterns/in-source-testing.md": {
+      "title": "In-Source Testing",
+      "excerpts": [
+        "guide/in-source.md"
+      ]
+    },
+    "references/testing-patterns/benchmarking.md": {
+      "title": "Benchmarking",
+      "excerpts": [
+        "guide/benchmarking.md"
+      ]
+    },
+    "references/testing-patterns/database-testing.md": {
+      "title": "Database Transaction per Test",
+      "excerpts": [
+        "guide/recipes/db-transaction.md"
+      ]
+    },
+    "references/testing-patterns/cancellable-resources.md": {
+      "title": "Cancellable Test Resources",
+      "excerpts": [
+        "guide/recipes/cancellable.md"
+      ]
+    },
+    "references/frameworks/react.md": {
+      "title": "React",
+      "excerpts": [
+        "api/browser/react.md"
+      ]
+    },
+    "references/frameworks/vue.md": {
+      "title": "Vue",
+      "excerpts": [
+        "api/browser/vue.md"
+      ]
+    },
+    "references/frameworks/svelte.md": {
+      "title": "Svelte",
+      "excerpts": [
+        "api/browser/svelte.md"
+      ]
+    },
+    "references/browser-mode/browser-mode.md": {
+      "title": "Browser Mode",
+      "excerpts": [
+        "guide/browser/index.md"
+      ]
+    },
+    "references/browser-mode/locators.md": {
+      "title": "Locators",
+      "excerpts": [
+        "api/browser/locators.md",
+        "guide/recipes/browser-locators.md"
+      ]
+    },
+    "references/browser-mode/interactivity.md": {
+      "title": "Interactivity",
+      "excerpts": [
+        "api/browser/interactivity.md"
+      ]
+    },
+    "references/browser-mode/assertions.md": {
+      "title": "Browser Assertions",
+      "excerpts": [
+        "api/browser/assertions.md"
+      ]
+    },
+    "references/browser-mode/context-commands.md": {
+      "title": "Context & Commands",
+      "excerpts": [
+        "api/browser/context.md",
+        "api/browser/commands.md"
+      ]
+    },
+    "references/browser-mode/multiple-setups.md": {
+      "title": "Multiple Setups",
+      "excerpts": [
+        "guide/browser/multiple-setups.md"
+      ]
+    },
+    "references/browser-mode/traces.md": {
+      "title": "Traces",
+      "excerpts": [
+        "guide/browser/trace-view.md",
+        "guide/browser/playwright-traces.md"
+      ]
+    },
+    "references/infrastructure-ci-cd/github-actions.md": {
+      "title": "GitHub Actions",
+      "excerpts": [
+        "guide/reporters.md :: ### GitHub Actions Reporter {#github-actions-reporter}",
+        "guide/test-annotations.md :: ### github-actions",
+        "guide/improving-performance.md :: ## Sharding",
+        "guide/ui.md :: ### View Reports from CI"
+      ]
+    },
+    "references/infrastructure-ci-cd/parallel-sharding.md": {
+      "title": "Parallelism & Sharding",
+      "excerpts": [
+        "guide/parallelism.md",
+        "guide/improving-performance.md :: ## Sharding",
+        "guide/cli.md :: ### shard",
+        "guide/cli.md :: ### merge-reports",
+        "guide/recipes/parallel-sequential.md"
+      ]
+    },
+    "references/infrastructure-ci-cd/performance.md": {
+      "title": "Performance",
+      "excerpts": [
+        "guide/improving-performance.md",
+        "guide/profiling-test-performance.md",
+        "guide/recipes/disable-isolation.md",
+        "guide/open-telemetry.md"
+      ]
+    },
+    "references/infrastructure-ci-cd/test-coverage.md": {
+      "title": "Test Coverage",
+      "excerpts": [
+        "guide/coverage.md"
+      ]
+    },
+    "references/infrastructure-ci-cd/reporting.md": {
+      "title": "Reporting",
+      "excerpts": [
+        "guide/reporters.md"
+      ]
+    },
+    "references/infrastructure-ci-cd/cli.md": {
+      "title": "Command Line Interface",
+      "excerpts": [
+        "guide/cli.md"
+      ]
+    },
+    "references/infrastructure-ci-cd/affected-tests.md": {
+      "title": "Running Only Affected Tests",
+      "excerpts": [
+        "guide/recipes/affected-tests.md"
+      ]
+    },
+    "references/infrastructure-ci-cd/watch-mode.md": {
+      "title": "Watch Mode",
+      "excerpts": [
+        "guide/features.md :: ## Watch Mode",
+        "guide/recipes/watch-templates.md"
+      ]
+    },
+    "references/migration/migrating-vitest.md": {
+      "title": "Migrating to Vitest 5.0",
+      "excerpts": [
+        "guide/migration/index.md"
+      ]
+    },
+    "references/migration/jest.md": {
+      "title": "Migrating from Jest",
+      "excerpts": [
+        "guide/migration/jest.md"
+      ]
+    },
+    "references/migration/mocha.md": {
+      "title": "Migrating from Mocha + Chai + Sinon",
+      "excerpts": [
+        "guide/migration/mocha.md"
+      ]
+    },
+    "references/api/test.md": {
+      "title": "Test API",
+      "excerpts": [
+        "api/test.md"
+      ]
+    },
+    "references/api/describe.md": {
+      "title": "describe API",
+      "excerpts": [
+        "api/describe.md"
+      ]
+    },
+    "references/api/hooks.md": {
+      "title": "Hooks API",
+      "excerpts": [
+        "api/hooks.md"
+      ]
+    },
+    "references/api/expect.md": {
+      "title": "expect API",
+      "excerpts": [
+        "api/expect.md"
+      ]
+    },
+    "references/api/expect-typeof.md": {
+      "title": "expectTypeOf & assertType API",
+      "excerpts": [
+        "api/expect-typeof.md",
+        "api/assert-type.md"
+      ]
+    },
+    "references/api/vi.md": {
+      "title": "vi API",
+      "excerpts": [
+        "api/vi.md"
+      ]
+    },
+    "references/api/mock.md": {
+      "title": "Mock API",
+      "excerpts": [
+        "api/mock.md"
+      ]
+    }
+  }
+}

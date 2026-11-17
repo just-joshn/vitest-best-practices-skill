@@ -1,0 +1,40 @@
+name: Validate AI Skill
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  agnix:
+    name: Agnix Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate agent configs
+        uses: agent-sh/agnix@12a1917d13e7c804bc91768c30dd4159f536c5c6
+
+  verbatim:
+    name: References match Vitest docs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Read pinned Vitest commit
+        id: pin
+        run: echo "commit=$(jq -r .commit sources.json)" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/checkout@v4
+        with:
+          repository: vitest-dev/vitest
+          ref: ${{ steps.pin.outputs.commit }}
+          path: .vitest
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Check references are verbatim and SKILL.md links resolve
+        run: node scripts/build.mjs --vitest .vitest --check
