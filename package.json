@@ -1,0 +1,24 @@
+{
+  "name": "@justjoshn/vitest-best-practices",
+  "version": "2.0.0",
+  "description": "Workflow skill that makes AI agents run Vitest work like a disciplined team, with every Vitest step cited from the official Vitest documentation.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/just-joshn/vitest-best-practices-skill.git"
+  },
+  "keywords": [
+    "vitest",
+    "agent-skill",
+    "skill",
+    "testing"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/just-joshn/vitest-best-practices-skill/issues"
+  },
+  "homepage": "https://github.com/just-joshn/vitest-best-practices-skill#readme",
+  "files": [
+    "vitest-best-practices/",
+    "LICENSE-vitest-docs.md"
+  ]
+}

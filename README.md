@@ -10,6 +10,14 @@ All Vitest guidance comes from the official Vitest documentation, pinned in [`so
 npx skills add https://github.com/just-joshn/vitest-best-practices-skill
 ```
 
+Or install from npm:
+
+```bash
+npm install @justjoshn/vitest-best-practices
+```
+
+The skill folder is then at `node_modules/@justjoshn/vitest-best-practices/vitest-best-practices/`. Copy it into your agent's skills directory.
+
 ## Layout
 
 | Path | What it is | Written by |
